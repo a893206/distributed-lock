@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cr.distributed.lock.mapper.StockMapper;
 import com.cr.distributed.lock.pojo.Stock;
 import com.cr.distributed.lock.service.StockService;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.locks.ReentrantLock;
@@ -16,6 +18,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2022/10/8 12:35
  */
 @Service
+@Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class StockServiceImpl extends ServiceImpl<StockMapper, Stock> implements StockService {
 
 //    private final Stock stock = new Stock();
