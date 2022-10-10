@@ -26,7 +26,7 @@ public class StockServiceImpl extends ServiceImpl<StockMapper, Stock> implements
      * 扣减库存
      */
     @Override
-    public void deduct() {
+    public synchronized void deduct() {
 //        lock.lock();
         try {
             Stock stock = getOne(new LambdaQueryWrapper<Stock>().eq(Stock::getProductCode, "1001"));
