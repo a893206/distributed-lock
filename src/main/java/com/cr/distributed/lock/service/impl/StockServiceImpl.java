@@ -36,6 +36,7 @@ public class StockServiceImpl extends ServiceImpl<StockMapper, Stock> implements
             Stock stock = getOne(new LambdaQueryWrapper<Stock>().eq(Stock::getProductCode, "1001"));
             if (stock != null && stock.getCount() > 0) {
                 stock.setCount(stock.getCount() - 1);
+//                System.out.println("余数：" + stock.getCount());
                 updateById(stock);
             }
         } finally {
